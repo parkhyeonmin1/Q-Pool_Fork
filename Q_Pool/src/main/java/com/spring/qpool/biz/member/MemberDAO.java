@@ -16,7 +16,7 @@ public class MemberDAO {
 
 	private static final String SELECTALL="";
 	private static final String SELECTONE_LOGIN=
-			"SELECT ID,ROLE  FROM MEMBER  WHERE ID=? AND PW=? ";
+			"SELECT ID,NAME,ROLE  FROM MEMBER  WHERE ID=? AND PW=? ";
 
 	private static final String INSERT="";
 	private static final String UPDATE="";
@@ -54,6 +54,7 @@ class MemberRowMapper implements RowMapper<MemberDTO> {
 		MemberDTO data = new MemberDTO();
 		System.out.println("[로그:박현민] memberID = "+rs.getString("ID"));
 		data.setMemberID(rs.getString("ID"));
+		data.setMemberName(rs.getString("NAME"));
 		data.setMemberRole(rs.getString("ROLE"));
 		return data;
 	}
