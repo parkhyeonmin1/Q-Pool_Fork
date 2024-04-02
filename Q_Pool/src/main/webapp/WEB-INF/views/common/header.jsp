@@ -55,8 +55,13 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="/" class="active">Home</a></li>
-          <li><a href="/WEB-INF/views/about.jsp">게시판</a></li>
-          <li><a href="/WEB-INF/views/courses.jsp">강의</a></li>
+          <li class="dropdown has-dropdown"><span>게시판</span> <i class="bi bi-chevron-down"></i>
+            <ul>
+              <li><a href="/questionBoardPage">질문 게시판</a></li>
+              <li><a href="/discussionBoardPage">토의 게시판</a></li>
+            </ul>
+          </li>
+          <li><a href="/lecturePage">강의</a></li>
           <li><a href="/problemPage">문제</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

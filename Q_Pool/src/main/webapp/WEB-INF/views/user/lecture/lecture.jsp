@@ -11,21 +11,12 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Q_Pool 로그인 페이지</title>
+  <title>Q_Pool 강의목록</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-  <!-- 네이버 소셜로그인 -->
-  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-  <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2-nopolyfill.js"></script>
-  <!-- jQuery Plugin -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"></script>
-  <!-- 카카오톡 소셜로그인 -->
-  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js" integrity="sha384-l+xbElFSnPZ2rOaPrU//2FF5B4LB8FiX5q4fXYTlfcG4PGpMkE1vcL7kNXI6Cci0" crossorigin="anonymous"></script>
-  <script>
-    Kakao.init('09f5245c373047d1b84985742c98e322'); // 사용하려는 앱의 JavaScript 키 입력
-  </script>
+
   <!-- Favicons -->
+  <link href="resources/assets/img/favicon.png" rel="icon">
   <link href="resources/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
@@ -52,7 +43,7 @@
   ======================================================== -->
 </head>
 
-<body class="about-page">
+<body class="courses-page">
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
@@ -64,47 +55,106 @@
         <div class="container">
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
-              <h1 class="">Log In<br></h1>
+              <h1>강의</h1>
             </div>
           </div>
         </div>
       </div>
-      <nav class="breadcrumbs">
-        <div class="container">
-        </div>
-      </nav>
     </div><!-- End Page Title -->
 
-    <!-- About Us Section -->
-    <section id="contact" class="contact section">
+    <!-- Courses List Section -->
+    <section id="courses-list" class="section courses-list">
 
       <div class="container">
-      	<div class="row gy-4" style="justify-content : center; margin-top : 5%; margin : auto;">
-	      	<div class="col-lg-8" style="justify-content : center;">
-	        <form action="/login" method="POST" id="loginForm">
-	          <div class="row gy-4">
-	            <div class="col-md-12">
-	              <input type="text" name="memberID" class="form-control form-control-lg" placeholder="아이디를 입력하세요" required="" style="width : 60%; margin : auto;">
-	            </div>
-	            <div class="col-md-12">
-	              <input type="password" class="form-control form-control-lg" name="memberPW" placeholder="비밀번호를 입력하세요" required="" style="width : 60%; margin : auto;">
-	            </div>
-	            <div class="col-md-12 text-center">
-	              <button type="submit" class="btn btn-success btn-lg" onclick="submitForm()" style="background-color : #5fcf80; border : none;">로그인</button>
-	              <div id="naver_id_login" style="height: inherit;"></div>
-		      		<a id="kakao-login-btn" href="javascript:loginWithKakao()" style="height: inherit;">
-		      			<img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="200" alt="카카오 로그인 버튼" />
-		      		</a>
-		      		<p id="token-result"></p>
-	              </div>
 
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="course-item">
+              <img src="resources/assets/img/course-1.jpg" class="img-fluid" alt="...">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <p class="category">JAVA</p>
+                  <p class="category">HTML</p>
+                  <p class="category">CSS</p>
+                  <p class="category">JavaScript</p>
+                  <p class="price">$169</p>
+                </div>
+
+                <h3><a href="course-details.jsp">웹 프로그래밍 기초</a></h3>
+                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <img src="resources/assets/img/trainers/trainer-1-2.jpg" class="img-fluid" alt="">
+                    <a href="" class="trainer-link">Antonio</a>
+                  </div>
+                  <div class="trainer-rank d-flex align-items-center">
+                    <i class="bi bi-person user-icon"></i>&nbsp;50
+                    &nbsp;&nbsp;
+                    <i class="bi bi-heart heart-icon"></i>&nbsp;65
+                  </div>
+                </div>
+              </div>
             </div>
-            </form>
+          </div> <!-- End Course Item-->
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="course-item">
+              <img src="resources/assets/img/course-2.jpg" class="img-fluid" alt="...">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <p class="category">SQLD</p>
+                  <p class="price">$250</p>
+                </div>
+
+                <h3><a href="course-details.jsp">SQLD 기본 강의</a></h3>
+                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <img src="resources/assets/img/trainers/trainer-2-2.jpg" class="img-fluid" alt="">
+                    <a href="" class="trainer-link">Lana</a>
+                  </div>
+                  <div class="trainer-rank d-flex align-items-center">
+                    <i class="bi bi-person user-icon"></i>&nbsp;35
+                    &nbsp;&nbsp;
+                    <i class="bi bi-heart heart-icon"></i>&nbsp;42
+                  </div>
+                </div>
+              </div>
             </div>
-		</div>
+          </div> <!-- End Course Item-->
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="course-item">
+              <img src="resources/assets/img/course-3.jpg" class="img-fluid" alt="...">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <p class="category">Content</p>
+                  <p class="price">$180</p>
+                </div>
+
+                <h3><a href="course-details.jsp">Copywriting</a></h3>
+                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <img src="resources/assets/img/trainers/trainer-3-2.jpg" class="img-fluid" alt="">
+                    <a href="" class="trainer-link">Brandon</a>
+                  </div>
+                  <div class="trainer-rank d-flex align-items-center">
+                    <i class="bi bi-person user-icon"></i>&nbsp;20
+                    &nbsp;&nbsp;
+                    <i class="bi bi-heart heart-icon"></i>&nbsp;85
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+
+        </div>
+
       </div>
 
-    </section><!-- /About Us Section -->
+    </section><!-- /Courses List Section -->
 
   </main>
 
@@ -195,28 +245,7 @@
 
   <!-- Main JS File -->
   <script src="resources/assets/js/main.js"></script>
-  <script>
-  function submitForm() {
-      var form = document.getElementById("loginForm");
-      form.submit();
-  }
-  </script>
-  <!-- 네이버 로그인 버튼 노출 영역 -->
-  <script type="text/javascript">
-    	var naver_id_login = new naver_id_login("QknPldO_qP5hGm2Nhx6M", "http://localhost:8088/login/oauth2/code/naver");
-    	var state = naver_id_login.getUniqState();
-    	naver_id_login.setButton("green", 60,55);
-    	naver_id_login.setDomain("http://localhost:8088");
-    	naver_id_login.setState(state);
-    	naver_id_login.setPopup();
-    	naver_id_login.init_naver_id_login();
-  </script>
-  <script type="text/javascript">
-  $("#kakao-login-btn").on("click", function(e){
-     e.preventDefault();
-     window.location.href = '/oauth2/authorization/kakao'
-  })
-</script>
+
 </body>
 
 </html>

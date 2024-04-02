@@ -11,10 +11,20 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Q_Pool 문제</title>
+  <title>Q_Pool 로그인 페이지</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
+  <!-- 네이버 소셜로그인 -->
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2-nopolyfill.js"></script>
+  <!-- jQuery Plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"></script>
+  <!-- 카카오톡 소셜로그인 -->
+  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js" integrity="sha384-l+xbElFSnPZ2rOaPrU//2FF5B4LB8FiX5q4fXYTlfcG4PGpMkE1vcL7kNXI6Cci0" crossorigin="anonymous"></script>
+  <script>
+    Kakao.init('09f5245c373047d1b84985742c98e322'); // 사용하려는 앱의 JavaScript 키 입력
+  </script>
   <!-- Favicons -->
   <link href="resources/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -42,7 +52,7 @@
   ======================================================== -->
 </head>
 
-<body class="courses-page">
+<body class="about-page">
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
@@ -54,130 +64,47 @@
         <div class="container">
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
-              <h1>Q_Pool 문제</h1>
-              <p class="mb-0">다양한 문제들을 풀어 실력을 키워보세요!</p>
+              <h1 class="">Log In<br></h1>
             </div>
           </div>
         </div>
       </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+        </div>
+      </nav>
     </div><!-- End Page Title -->
 
-    <!-- Courses List Section -->
-    <section id="courses-list" class="section courses-list">
+    <!-- About Us Section -->
+    <section id="contact" class="contact section">
 
       <div class="container">
+      	<div class="row gy-4" style="justify-content : center; margin-top : 5%; margin : auto;">
+	      	<div class="col-lg-8" style="justify-content : center;">
+	        <form action="/login" method="POST" id="loginForm">
+	          <div class="row gy-4">
+	            <div class="col-md-12">
+	              <input type="text" name="memberID" class="form-control form-control-lg" placeholder="아이디를 입력하세요" required="" style="width : 60%; margin : auto;">
+	            </div>
+	            <div class="col-md-12">
+	              <input type="password" class="form-control form-control-lg" name="memberPW" placeholder="비밀번호를 입력하세요" required="" style="width : 60%; margin : auto;">
+	            </div>
+	            <div class="col-md-12 text-center">
+	              <button type="submit" class="btn btn-success btn-lg" onclick="submitForm()" style="background-color : #5fcf80; border : none;">로그인</button>
+	              <div id="naver_id_login" style="height: inherit;"></div>
+		      		<a id="kakao-login-btn" href="javascript:loginWithKakao()" style="height: inherit;">
+		      			<img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="200" alt="카카오 로그인 버튼" />
+		      		</a>
+		      		<p id="token-result"></p>
+	              </div>
 
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="course-item">
-              <img src="resources/assets/img/course-1.jpg" class="img-fluid" alt="..." style="width: 420px; height: 270px;">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <p class="category">코딩테스트</p>
-                </div>
-
-                <h3><a href="/codingDetail">코딩테스트 기출문제</a></h3>
-                <p class="description">다양한 코딩테스트 기출 문제를 통해 코딩테스트 준비하기</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="resources/assets/img/trainers/trainer-1-2.jpg" class="img-fluid" alt="">
-                    <a href="" class="trainer-link">김진영</a>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bi bi-person user-icon"></i>&nbsp;50
-                    &nbsp;&nbsp;
-                    <i class="bi bi-heart heart-icon"></i>&nbsp;65
-                  </div>
-                </div>
-              </div>
             </div>
-          </div> <!-- End Course Item-->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="course-item">
-              <img src="resources/assets/img/sqld.png" class="img-fluid" alt="..." style="width: 420px; height: 270px;">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <p class="category">SQLD</p>
-                </div>
-
-                <h3><a href="/sqldDetail">SQLD 문제 모음</a></h3>
-                <p class="description">연도별 SQLD 문제를 풀어보세요.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="resources/assets/img/trainers/trainer-2-2.jpg" class="img-fluid" alt="">
-                    <a href="" class="trainer-link">Lana</a>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bi bi-person user-icon"></i>&nbsp;35
-                    &nbsp;&nbsp;
-                    <i class="bi bi-heart heart-icon"></i>&nbsp;42
-                  </div>
-                </div>
-              </div>
+            </form>
             </div>
-          </div> <!-- End Course Item-->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="course-item">
-              <img src="resources/assets/img/qnet.png" class="img-fluid" alt="..." style="width: 420px; height: 270px;">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <p class="category">정보처리기사 필기</p>
-                </div>
-
-                <h3><a href="course-details.jsp">정보처리기사 필기</a></h3>
-                <p class="description">연도별 정보처리기사 기출문제를 통해 정보처리기사 합격하기</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="resources/assets/img/trainers/trainer-3-2.jpg" class="img-fluid" alt="">
-                    <a href="" class="trainer-link">Brandon</a>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bi bi-person user-icon"></i>&nbsp;20
-                    &nbsp;&nbsp;
-                    <i class="bi bi-heart heart-icon"></i>&nbsp;85
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
-		
-        </div>
-		<div class="row" style="margin-top: 5%;">
-			<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="course-item">
-              <img src="resources/assets/img/qnet.png" class="img-fluid" alt="..." style="width: 420px; height: 270px;">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <p class="category">정보처리기사 실기</p>
-                </div>
-
-                <h3><a href="course-details.jsp">정보처리기사 실기</a></h3>
-                <p class="description">연도별 정보처리기사 기출문제를 통해 정보처리기사 합격하기</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="resources/assets/img/trainers/trainer-3-2.jpg" class="img-fluid" alt="">
-                    <a href="" class="trainer-link">test</a>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bi bi-person user-icon"></i>&nbsp;10
-                    &nbsp;&nbsp;
-                    <i class="bi bi-heart heart-icon"></i>&nbsp;85
-                  </div>
-                </div>
-              </div>
-            </div>
-           </div> <!-- End Course Item-->
-           
-           
 		</div>
-		
-		
       </div>
 
-    </section><!-- /Courses List Section -->
+    </section><!-- /About Us Section -->
 
   </main>
 
@@ -268,8 +195,28 @@
 
   <!-- Main JS File -->
   <script src="resources/assets/js/main.js"></script>
-  
-
+  <script>
+  function submitForm() {
+      var form = document.getElementById("loginForm");
+      form.submit();
+  }
+  </script>
+  <!-- 네이버 로그인 버튼 노출 영역 -->
+  <script type="text/javascript">
+    	var naver_id_login = new naver_id_login("QknPldO_qP5hGm2Nhx6M", "http://localhost:8088/naverLogin");
+    	var state = naver_id_login.getUniqState();
+    	naver_id_login.setButton("green", 60,55);
+    	naver_id_login.setDomain("http://localhost:8088");
+    	naver_id_login.setState(state);
+    	naver_id_login.setPopup();
+    	naver_id_login.init_naver_id_login();
+  </script>
+  <script type="text/javascript">
+  $("#kakao-login-btn").on("click", function(e){
+     e.preventDefault();
+     window.location.href = '/oauth2/authorization/kakao'
+  })
+</script>
 </body>
 
 </html>
