@@ -12,4 +12,6 @@ public class CommentDTO {
 	private String commentContent;	// 댓글 내용
 	private String commentWriter;	// 댓글 작성자
 	private Date commentRegDate;	// 작성일자
+	
+	private String searchCondition;
 }

@@ -12,4 +12,6 @@ public class ReplyDTO {
 	private String replyContent;	// 대댓글 내용
 	private String replyWriter;		// 작성자
 	private Date replyRegDate;		// 작성일자
+	
+	private String searchCondition;
 }

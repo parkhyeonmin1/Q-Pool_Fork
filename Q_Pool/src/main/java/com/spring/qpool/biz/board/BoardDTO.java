@@ -15,4 +15,6 @@ public class BoardDTO {
 	private Date boardRegDate;		// 작성일자
 	private Date boardUpdateDate;	// 수정일자
 	private Date boardDeleteDate;	// 삭제일자
+	
+	private String searchCondition;
 }

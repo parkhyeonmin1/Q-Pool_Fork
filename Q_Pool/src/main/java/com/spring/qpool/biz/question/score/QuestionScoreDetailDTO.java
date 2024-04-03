@@ -11,4 +11,5 @@ public class QuestionScoreDetailDTO {
 	private String memberId;			// 회원 아이디
 	private String answerCheck;			// 정답 여부
 	
+	private String searchCondition;
 }
