@@ -1,5 +1,7 @@
 package com.spring.qpool.biz.member;
 
+import java.util.Date;
+
 import lombok.Data;
 
 @Data
@@ -15,6 +17,7 @@ public class MemberDTO {
 	private String memberRole;			// 역할
 	private String memberBirth;			// 생년월을
 	private String profileImage;		// 프로필 이미지
+	private Date regDate;				// 가입날짜
 	
 	private String searchCondition;
 }

@@ -10,4 +10,5 @@ public class QuestionExplanationDTO {
 	private String explanation;			// 해설 내용 
 	private String memberId;			// 회원 아이디
 	
+	private String searchCondition;
 }

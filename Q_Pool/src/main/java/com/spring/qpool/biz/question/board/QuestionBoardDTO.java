@@ -9,4 +9,6 @@ public class QuestionBoardDTO {
 	private int subjectTypeIdx;		// 과목 번호
 	private String questionTitle;	// 문제 제목
 	private int answer;				// 답
+	
+	private String searchCondition;
 }

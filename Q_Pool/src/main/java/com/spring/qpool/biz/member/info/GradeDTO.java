@@ -6,4 +6,6 @@ import lombok.Data;
 public class GradeDTO {
 	private int gradeIdx;		// 등급 번호
 	private String gradeType;	// 등급
+	
+	private String searchCondition;
 }
