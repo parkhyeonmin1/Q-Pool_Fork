@@ -16,18 +16,17 @@ import jakarta.servlet.http.HttpSession;
 public class LoginController {
 	
 	@Autowired
-	MemberService memberservice;
+	MemberService memberService;
 	
 	@PostMapping("/login")
 	public String login(MemberDTO mDTO, Model model, HttpSession session) {
 		System.out.println("login 요청 들어옴");
-		mDTO = memberservice.selectOne(mDTO);
-		
+		mDTO = memberService.selectOne(mDTO);
 		if(mDTO == null) {
 			model.addAttribute("msg", "로그인 실패!");
 			return "common/goback";
 		}
-		if(mDTO.getMemberRole().equals("2")) {	// 관리자 로그인
+		if(mDTO.getMemberRole()==2) {	// 관리자 로그인
 			session.setAttribute("adminDTO", mDTO);
 			return "admin/adminMain";
 		}
