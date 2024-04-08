@@ -1,15 +1,18 @@
 package com.spring.qpool.biz.member;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService{
-	@Autowired 
+	
+	@Autowired
 	MemberDAO memberDAO;
-
+	
 	@Override
 	public List<MemberDTO> selectAll(MemberDTO memberDTO) {
 		return memberDAO.selectAll(memberDTO);
@@ -17,7 +20,13 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public MemberDTO selectOne(MemberDTO memberDTO) {
-		return memberDAO.selectOne(memberDTO);
+		System.out.println(memberDTO);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("memberId", memberDTO.getMemberId());
+		map.put("memberPw", memberDTO.getMemberPw());
+		System.out.println("selectone 들어가기전"+map);
+		return memberDAO.selectOne(map);
+//		return memberDAO.selectOne(memberDTO);
 	}
 
 	@Override
