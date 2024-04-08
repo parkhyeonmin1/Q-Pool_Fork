@@ -55,6 +55,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="/" class="active">Home</a></li>
+          <li><a href="/mailPage">이메일 보내기</a></li>
           <li class="dropdown has-dropdown"><span>게시판</span> <i class="bi bi-chevron-down"></i>
             <ul>
               <li><a href="/questionBoardPage">질문 게시판</a></li>
