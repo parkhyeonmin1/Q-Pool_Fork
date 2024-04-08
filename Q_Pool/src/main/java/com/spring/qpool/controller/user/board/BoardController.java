@@ -2,6 +2,7 @@ package com.spring.qpool.controller.user.board;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class BoardController {
@@ -19,8 +20,14 @@ public class BoardController {
 	}
 	
 	
-	@GetMapping("/boardWritePage")
+	@GetMapping("/boardWritePage")	// 게시판 작성 페이지
 	public String boardWritePage() {
+		
+		return "user/board/boardWrite";
+	}
+	
+	@PostMapping("/boardInsert")	// 게시글 작성
+	public String boardInsert() {
 		
 		return "user/board/boardWrite";
 	}
