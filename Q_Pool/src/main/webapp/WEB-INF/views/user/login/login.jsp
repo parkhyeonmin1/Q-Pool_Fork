@@ -84,10 +84,10 @@
 	        <form action="/login" method="POST" id="loginForm">
 	          <div class="row gy-4">
 	            <div class="col-md-12">
-	              <input type="text" name="memberID" class="form-control form-control-lg" placeholder="아이디를 입력하세요" required="" style="width : 60%; margin : auto;">
+	              <input type="text" name="memberId" class="form-control form-control-lg" placeholder="아이디를 입력하세요" required="" style="width : 60%; margin : auto;">
 	            </div>
 	            <div class="col-md-12">
-	              <input type="password" class="form-control form-control-lg" name="memberPW" placeholder="비밀번호를 입력하세요" required="" style="width : 60%; margin : auto;">
+	              <input type="password" class="form-control form-control-lg" name="memberPw" placeholder="비밀번호를 입력하세요" required="" style="width : 60%; margin : auto;">
 	            </div>
 	            <div class="col-md-12 text-center">
 	              <button type="submit" class="btn btn-success btn-lg" onclick="submitForm()" style="background-color : #5fcf80; border : none;">로그인</button>
