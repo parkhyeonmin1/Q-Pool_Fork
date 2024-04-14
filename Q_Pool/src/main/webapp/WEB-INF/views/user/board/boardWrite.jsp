@@ -81,19 +81,19 @@
                       <h5 class="mb-0">게시판 > 글 작성</h5>
                     </div>
                     <div class="card-body">
-                      <form>
+                      <form action="/boardInsert" method="POST">
                         <div class="row mb-3" style="margin-top: 2%;">
                           <label class="col-sm-2 col-form-label">작성자</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="" value="${member.memberName}" readonly/>
+                            <input type="text" class="form-control" id="writer" name="writer" value="${member.memberName}" readonly/>
                           </div>
                         </div>
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label">분류</label>
                           <div class="col-sm-10">
-                            <select class="form-control">
-                            	<option>질문</option>
-                            	<option>토의</option>
+                            <select class="form-control" name="boardType">
+                            	<option value="1">질문</option>
+                            	<option value="2">토의</option>
                             </select>
                           </div>
                         </div>
@@ -101,16 +101,14 @@
                           <label class="col-sm-2 col-form-label">제목</label>
                           <div class="col-sm-10">
                             <div class="input-group input-group-merge">
-                              <input type="text" id="" class="form-control"/>
+                              <input type="text" id="boardTitle" name="boardTitle" class="form-control"/>
                             </div>
                           </div>
                         </div>
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label">내용</label>
                           <div class="col-sm-10">
-                            <textarea id="" class="form-control" rows="8">
-                            
-                            </textarea>
+                            <textarea id="boardContent" name="boardContent" class="form-control" rows="8"></textarea>
                           </div>
                         </div>
                         <div class="row justify-content-end">
