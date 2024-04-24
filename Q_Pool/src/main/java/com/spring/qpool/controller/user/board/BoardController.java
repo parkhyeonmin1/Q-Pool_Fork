@@ -1,12 +1,19 @@
 package com.spring.qpool.controller.user.board;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.spring.qpool.biz.board.BoardDTO;
+import com.spring.qpool.biz.board.BoardService;
+
 @Controller
 public class BoardController {
-
+	
+	@Autowired
+	private BoardService boardService;
+	
 	@GetMapping("/questionBoardPage") // 질문 게시판
 	public String questionBoardPage() {
 		
@@ -27,8 +34,9 @@ public class BoardController {
 	}
 	
 	@PostMapping("/boardInsert")	// 게시글 작성
-	public String boardInsert() {
+	public String boardInsert(BoardDTO boardDTO) {
 		
-		return "user/board/boardWrite";
+		boardService.insert(boardDTO);
+		return "user/board/questionBoard";
 	}
 }
